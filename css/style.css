@@ -62,7 +62,8 @@ header .header__info {
 
 .header__menu h1 {
   font-weight: bold;
-  font-size: 36px;
+  font-size: 30px;
+  /* chỉnh lại cỡ chữ 30px cho brand để màn hình nhỏ đẹp hơn */
   color: #282828;
   display: flex;
   flex-direction: column;
@@ -318,6 +319,7 @@ header .header__info {
 .welcome__content .welcome__item {
   border: 1px solid #000;
   padding: 2em;
+  width: 100%;
 }
 .welcome__content .welcome__item.welcome__clearBorder {
   border-left: 0;
@@ -534,17 +536,17 @@ header .header__info {
   color: #000;
   transition: all 0.5s;
 }
-.new .new__item h2 a:hover {
+.new__item h2 a:hover {
   color: #ff4f81;
 }
-.new .new__item h3 {
+.new__item h3 {
   font-size: 1.2em;
   color: #ff4f81;
   font-weight: 600;
   margin: 1em 0;
   letter-spacing: 1px;
 }
-.new .new__item p {
+.new__item p {
   margin: 1em 0 0;
   color: #999;
   font-size: 1em;
@@ -566,35 +568,37 @@ footer {
 .footer__content {
   margin-top: 80px;
   padding-top: 70px;
+  padding-bottom: 70px;
+  /* Nên có padding botom để các nội dung không chạm đáy */
 }
-.footer__content .footer__about {
+.footer__about {
   color: #8b8b96;
   margin-bottom: 2em;
   line-height: 2em;
 }
-.footer__content .footer__new {
+.footer__new {
   margin-bottom: 2em;
 }
-.footer__content .footer__new ul li,
-.footer__content .footer__info ul li {
+.footer__new ul li,
+.footer__info ul li {
   display: flex;
   list-style: none;
   color: #8b8b96;
   align-items: center;
   margin-bottom: 1em;
 }
-.footer__content .footer__new ul li i {
+.footer__new ul li i {
   color: #ff4f81;
   padding-right: 16px;
 }
-.footer__content .footer__new ul li p {
+.footer__new ul li p {
   margin-bottom: 0;
 }
 
-.footer__content .footer__info {
+.footer__info {
   margin-bottom: 2em;
 }
-.footer__content .footer__info ul li i {
+.footer__info ul li i {
   color: #fff;
   width: 32px;
   height: 32px;
@@ -603,22 +607,25 @@ footer {
   margin-right: 1em;
   text-align: center;
 }
-.footer__content .footer__info ul li a {
+.footer__info li>a {
+  /* selector ít thôi để đỡ rắc rối fix bug sau này, quy tắc BEM (.block element modifier) bạn chỉ nên select nhiều nhất 3 bậc cho đẹp code, trường hợp cần thiết lắm mới 4 hoặc 5 bậc */
   color: #8b8b96;
   text-decoration: none;
   transition: all 0.8s;
 }
-.footer__content .footer__info ul li a:hover {
+.footer__info li>a:hover {
   color: #fff;
 }
 
-.footer__content .footer__form form {
+.footer__form form {
   display: flex;
 }
-.footer__content .footer__form input {
+.footer__form input {
   outline: none;
-
-  padding: 27px;
+  /* padding: 27px; */
+  /* không nên để độ cao của input và button phụ thuộc vào height, nên set cứng height cho nó là ổn */
+  height: 50px;
+  padding: 0 15px;
   font-size: 12px;
   color: #888;
   width: 70%;
@@ -627,9 +634,11 @@ footer {
   border-radius: 0;
   border: none;
 }
-.footer__content .footer__form form button {
+.footer__form button {
   outline: none;
-  padding: 12px 0;
+  /* padding: 12px 0; */
+  padding: 0 15px;
+  height: 50px;
   background: #ff4f81;
   font-size: 1em;
   color: #fff;
